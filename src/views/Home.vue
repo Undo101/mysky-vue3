@@ -1,18 +1,59 @@
 <template>
-  <div class="home">
-    <img src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home-page">
+    <div class="home-sky">
+      <sky></sky>
+    </div>
+    <div class="home-content">
+      <div class="home-wrap">
+
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import sky from '@/components/sky/index.vue'
 export default {
-  name: "home",
+  props: {
+  },
+  data() {
+    return {
+    }
+  },
   components: {
-    HelloWorld
+    sky
+  },
+  mounted() {
+  },
+  methods: {
+  },
+  beforeDestory() {
   }
-};
+}
 </script>
+
+<style lang="scss" scoped>
+.home {
+  &-page {
+    height: 100%;
+    position: relative;
+  }
+  &-sky {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+  }
+  &-content {
+    height: 100%;
+    width: 100%;
+    padding: 200px 100px 100px;
+  }
+  &-wrap {
+    height: 700px;
+    width: 100%;
+    background-color: rgba(98, 98, 102, .3);
+    border-radius: 5px;
+  }
+}
+</style>

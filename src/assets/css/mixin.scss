@@ -1,0 +1,101 @@
+/* define mixin */
+// flex
+@mixin flex($justifyContent: flex-start, $alignItems: flex-start) {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}
+// 单行省略
+@mixin ellipsis{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+// 定义border边框
+@mixin border($border-direction: top, $border-width: 0.05rem, $border-style: solid, $border-color: $lightenGrayColor2) {
+  @if ($border-direction == top) {
+    border-top: $border-width $border-style $border-color
+  }
+  @if ($border-direction == bottom) {
+    border-bottom: $border-width $border-style $border-color
+  }
+  @if ($border-direction == left) {
+    border-left: $border-width $border-style $border-color
+  }
+  @if ($border-direction == right) {
+    border-right: $border-width $border-style $border-color
+  }
+  @if ($border-direction == all) {
+    border: $border-width $border-style $border-color
+  }
+}
+// 向右箭头
+@mixin arrowRight($arrowBorder: 2px, $arrowSize: 0.5rem, $arrowRight: 1rem, $color: $lightenGrayColor2){
+  border: solid $arrowBorder $color;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  content: " ";
+  top: 50%;
+  right: $arrowRight;
+  position: absolute;
+  width: $arrowSize;
+  height: $arrowSize;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+@mixin checkIcon {
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 100%;
+  border: torem(1px) solid #ccc;
+  position: relative;
+  width: torem(14px);
+  height: torem(14px);
+  vertical-align: middle;
+  &:after{
+    border: torem(1px) solid transparent;
+    border-left: 0;
+    border-top: 0;
+    content: " ";
+    top: torem(1px);
+    left: torem(4px);
+    position: absolute;
+    width: torem(3px);
+    height: torem(6px);
+    transform: rotate(45deg) scale(0);
+    transition: transform .2s;
+  }
+  &.checked{
+    background-color: $lightenMainColor;
+    border-color: $lightenMainColor;
+    &:after{
+      border-color: #fff;
+      transform: rotate(45deg) scale(1);
+    }
+  }
+}
+
+/* define function */
+// define function for transforming px to rem
+@function torem($px) {
+  @return $px / 20px * 1rem;
+}
+
+/* define color */
+// bg
+$pageBgColor: #f6f6f6;
+$boxBgColor: #fff;
+// font
+$baseFontColor: #000;
+$darkenGrayFontColor: #333;
+$lightenGrayColor: #999;
+$lightenGrayColor2: #eee;
+$whiteFontColor: #fff;
+// vi
+$mainColor: #5876A6;
+$lightenMainColor: #32ABEA;
+// button
+$btnRedColor: #F93535;
+// other
+$whiteLineColor: #fff;
