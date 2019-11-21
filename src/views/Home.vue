@@ -47,7 +47,7 @@ export default {
   &-content {
     height: 100%;
     width: 100%;
-    padding: 200px 100px 100px;
+    padding: 200px 150px 100px;
   }
   &-wrap {
     height: 700px;
